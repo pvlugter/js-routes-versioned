@@ -12,3 +12,11 @@ libraryDependencies ++= Seq(
   cache,
   ws
 )
+
+pipelineStages := Seq(digest)
+
+// Create a map of versioned assets, replacing the empty versioned.js
+DigestKeys.indexPath := Some("javascripts/versioned.js")
+
+// Assign the asset index to a global versioned var
+DigestKeys.indexWriter ~= { writer => index => s"var versioned = ${writer(index)};" }

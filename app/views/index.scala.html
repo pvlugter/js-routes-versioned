@@ -1,7 +1,15 @@
-@(message: String)
+@()(implicit req: RequestHeader)
 
-@main("Welcome to Play") {
+<!DOCTYPE html>
 
-    @play20.welcome(message)
-
-}
+<html>
+<head>
+  <title>Javascript Routes Test Project</title>
+  @helper.javascriptRouter("jsRoutes")(
+    routes.javascript.Assets.versioned
+  )
+</head>
+<body>
+  <div>Hello world</div>
+</body>
+</html>
